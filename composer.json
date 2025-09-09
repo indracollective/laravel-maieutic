@@ -1,57 +1,82 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "indracollective/laravel-maieutic",
+    "description": "Quickly discover and build Laravel artisan commands through guided questioning and intelligent exploration",
     "keywords": [
-        ":vendor_name",
         "laravel",
-        ":package_slug"
+        "artisan",
+        "cli",
+        "interactive",
+        "commands",
+        "discovery",
+        "prompts",
+        "terminal"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/indracollective/laravel-maieutic",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Shea Dawson",
+            "email": "shea@livesource.co.nz",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.4",
+        "php": "^8.2",
         "spatie/laravel-package-tools": "^1.16",
         "illuminate/contracts": "^11.0||^12.0"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
-        "nunomaduro/collision": "^8.8",
-        "larastan/larastan": "^3.0",
-        "orchestra/testbench": "^10.0.0||^9.0.0",
-        "pestphp/pest": "^4.0",
-        "pestphp/pest-plugin-arch": "^4.0",
-        "pestphp/pest-plugin-laravel": "^4.0",
-        "phpstan/extension-installer": "^1.4",
-        "phpstan/phpstan-deprecation-rules": "^2.0",
-        "phpstan/phpstan-phpunit": "^2.0",
-        "spatie/laravel-ray": "^1.35"
+        "nunomaduro/collision": "^8.1.1||^7.10.0",
+        "larastan/larastan": "^2.9||^3.0",
+        "orchestra/testbench": "^10.0.0||^9.0.0||^8.22.0",
+        "pestphp/pest": "^3.0",
+        "pestphp/pest-plugin-arch": "^3.0",
+        "pestphp/pest-plugin-laravel": "^3.0",
+        "phpstan/extension-installer": "^1.3||^2.0",
+        "phpstan/phpstan-deprecation-rules": "^1.1||^2.0",
+        "phpstan/phpstan-phpunit": "^1.3||^2.0",
+        "irazasyed/docgen": "^0.2.0"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "IndraCollective\\LaravelMaieutic\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "IndraCollective\\LaravelMaieutic\\Tests\\": "tests",
             "Workbench\\App\\": "workbench/app/"
         }
     },
     "scripts": {
-        "post-autoload-dump": "@composer run prepare",
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare",
+            "@composer run prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "@composer run build",
+            "@php vendor/bin/testbench serve"
+        ],
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint"
+        "format": "vendor/bin/pint",
+        "docgen": "vendor/bin/docgen -c ./config/docgen.php",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve --ansi"
+        ],
+        "lint": [
+            "@php vendor/bin/pint --ansi",
+            "@php vendor/bin/phpstan analyse --verbose --ansi"
+        ]
     },
     "config": {
         "sort-packages": true,
@@ -63,11 +88,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
-            ],
-            "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
-            }
+                "IndraCollective\\LaravelMaieutic\\LaravelMaieuticServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",

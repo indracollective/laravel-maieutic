@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Indra\LaravelMaieutic\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelMaieuticCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-maieutic';
 
     public $description = 'My command';
 
