@@ -33,7 +33,7 @@ Traditional command-line interfaces require you to know exactly what you're look
 You can install the package via composer:
 
 ```bash
-composer require indracollective/laravel-maieutic
+composer require --dev indracollective/laravel-maieutic
 ```
 
 The package will automatically register itself via Laravel's package discovery.
