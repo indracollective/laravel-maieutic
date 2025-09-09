@@ -21,5 +21,5 @@ it('command is available in artisan kernel', function () {
     $kernel = $this->app->make('Illuminate\Contracts\Console\Kernel');
     $commands = $kernel->all();
 
-    expect($commands)->toHaveKey('?');
+    expect($commands)->toHaveKey('m');
 });

@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-it('registers the ? command', function () {
+it('registers the m command', function () {
     $this->artisan('list')
-        ->expectsOutputToContain('?')
+        ->expectsOutputToContain('m')
         ->assertExitCode(0);
 });
 
-it('can display ? command help', function () {
-    $this->artisan('? --help')
+it('can display m command help', function () {
+    $this->artisan('m --help')
         ->expectsOutputToContain('Interactive artisan command discovery through guided prompts')
         ->assertExitCode(0);
 });
 
-it('? command has correct signature', function () {
+it('m command has correct signature', function () {
     $kernel = $this->app->make('Illuminate\Contracts\Console\Kernel');
     $commands = $kernel->all();
 
-    expect($commands)->toHaveKey('?')
-        ->and($commands['?']->getName())->toBe('?')
-        ->and($commands['?']->getDescription())->toBe('Interactive artisan command discovery through guided prompts');
+    expect($commands)->toHaveKey('m')
+        ->and($commands['m']->getName())->toBe('m')
+        ->and($commands['m']->getDescription())->toBe('Interactive artisan command discovery through guided prompts');
 });

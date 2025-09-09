@@ -18,7 +18,7 @@ use function Laravel\Prompts\text;
 
 class MaieuticCommand extends Command
 {
-    protected $signature = '?';
+    protected $signature = 'm';
 
     protected $description = 'Interactive artisan command discovery through guided prompts';
 
@@ -69,7 +69,7 @@ class MaieuticCommand extends Command
     private function loadCommands(): void
     {
         $this->commands = collect($this->getApplication()->all())
-            ->filter(fn ($cmd) => ! in_array($cmd->getName(), ['maieutic', 'completion', 'help', 'list']))
+            ->filter(fn ($cmd) => ! in_array($cmd->getName(), ['m', 'completion', 'help', 'list']))
             ->map(function ($cmd) {
                 return [
                     'name' => $cmd->getName(),
