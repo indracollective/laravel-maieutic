@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-it('registers the maieutic command', function () {
+it('registers the ? command', function () {
     $this->artisan('list')
-        ->expectsOutputToContain('maieutic')
+        ->expectsOutputToContain('?')
         ->assertExitCode(0);
 });
 
-it('can display maieutic command help', function () {
-    $this->artisan('maieutic --help')
+it('can display ? command help', function () {
+    $this->artisan('? --help')
         ->expectsOutputToContain('Interactive artisan command discovery through guided prompts')
         ->assertExitCode(0);
 });
 
-it('maieutic command has correct signature', function () {
+it('? command has correct signature', function () {
     $kernel = $this->app->make('Illuminate\Contracts\Console\Kernel');
     $commands = $kernel->all();
 
-    expect($commands)->toHaveKey('maieutic')
-        ->and($commands['maieutic']->getName())->toBe('maieutic')
-        ->and($commands['maieutic']->getDescription())->toBe('Interactive artisan command discovery through guided prompts');
+    expect($commands)->toHaveKey('?')
+        ->and($commands['?']->getName())->toBe('?')
+        ->and($commands['?']->getDescription())->toBe('Interactive artisan command discovery through guided prompts');
 });

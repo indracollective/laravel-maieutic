@@ -18,7 +18,7 @@ use function Laravel\Prompts\text;
 
 class MaieuticCommand extends Command
 {
-    protected $signature = 'maieutic';
+    protected $signature = '?';
 
     protected $description = 'Interactive artisan command discovery through guided prompts';
 

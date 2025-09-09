@@ -42,10 +42,10 @@ The package will automatically register itself via Laravel's package discovery.
 
 ### Basic Usage
 
-Simply run the maieutic command to start the interactive interface:
+Simply run the question command to start the interactive interface:
 
 ```bash
-php artisan maieutic
+php artisan ?
 ```
 
 ### How It Works

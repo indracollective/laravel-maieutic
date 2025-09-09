@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-maieutic` will be documented in this file.
 
+## 1.1.0 - 2025-01-09
+
+- Change command signature from `maieutic` to `?` for simpler usage: `php artisan ?`
+- Add pronunciation guide to README
+
 ## 1.0.0 - 2025-01-09
 
 - Initial release
