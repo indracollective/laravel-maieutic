@@ -9,6 +9,8 @@
 
 Laravel Find transforms the way you work with artisan commands by providing an interactive, guided interface that helps you discover, understand, and build commands with confidence. Inspired by the Socratic tradition of learning through inquiry, this package uses thoughtful questioning to lead you to the exact command you need.
 
+![Demo](docs/demo.gif)
+
 ## Philosophy
 
 Traditional command-line interfaces require you to know exactly what you're looking for. Laravel Find flips this approach by:
@@ -51,51 +53,16 @@ php artisan find
 Or prefill with a search term to jump straight to relevant commands:
 
 ```bash
-php artisan find make:model
+php artisan find controller
 ```
 
 ### How It Works
 
 1. **Interactive Discovery**: Search through all available commands with real-time filtering
-2. **Guided Selection**: Choose your command from intelligently filtered suggestions  
+2. **Guided Selection**: Choose your command from intelligently filtered suggestions
 3. **Build Your Command**: Follow guided prompts for required arguments and optional parameters
 4. **Preview & Copy**: Review your complete command, then copy it to clipboard for immediate use
 
-### Example Session
-
-```
-  Artisan Find 🔍
-
- ┌ Find Artisan command ────────────────────────────────────────┐
- │ make                                                         │
- │ › make:model - Create a new Eloquent model class            │
- │   make:controller - Create a new controller class           │
- │   make:migration - Create a new migration file              │
- │   make:seeder - Create a new seeder class                   │
- │   make:factory - Create a new model factory                 │
- └──────────────────────────────────────────────────────────────┘
-
-📝 This command requires some arguments:
-┌ * Name: ─────────────────────────────────────────────────────┐
-│ User                                                         │
-└──────────────────────────────────────────────────────────────┘
-
-┌ Select any options you'd like to include: ──────────────────┐
-│ ◉ migration (Create a new migration file for the model)     │
-│ ◉ factory (Create a new factory for the model)              │
-│ ◻ seeder (Create a new seeder for the model)                │
-│ ◻ controller (Create a new controller for the model)        │
-└──────────────────────────────────────────────────────────────┘
-
-📋 Command Preview:
-   php artisan make:model User --migration --factory
-
-┌ Copy this command to clipboard? ────────────────────────────┐
-│ › Yes / No                                                   │
-└──────────────────────────────────────────────────────────────┘
-
-✅ Command copied to clipboard! You can now paste it in your terminal.
-```
 
 ## Usage Examples
 
@@ -107,19 +74,19 @@ php artisan find
 # Type "migr" to see: migrate, migrate:fresh, migrate:rollback, etc.
 ```
 
-### Targeted Search  
+### Targeted Search
 Jump directly to commands you know you need:
 
 ```bash
-php artisan find make:model    # Shows make:model commands immediately
-php artisan find queue         # Shows all queue-related commands  
+php artisan find controller    # Shows all controller-related commands
+php artisan find queue         # Shows all queue-related commands
 php artisan find test          # Shows testing commands
 ```
 
 ### Vendor-Specific Commands
 Discover commands from your installed packages:
 
-```bash  
+```bash
 php artisan find filament      # Shows Filament commands
 php artisan find livewire      # Shows Livewire commands
 php artisan find pest          # Shows Pest testing commands
