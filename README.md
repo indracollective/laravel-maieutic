@@ -9,7 +9,7 @@
 
 Laravel Find transforms the way you work with artisan commands by providing an interactive, guided interface that helps you discover, understand, and build commands with confidence. Inspired by the Socratic tradition of learning through inquiry, this package uses thoughtful questioning to lead you to the exact command you need.
 
-![Demo](./docs/demo.gif)
+![Demo](https://raw.githubusercontent.com/indracollective/laravel-artisan-find/docs/demo.gif)
 
 ## Philosophy
 
